@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <events />
+    <categories>
+        <section id="3" handle="categories">Categories</section>
+        <error>No records found.</error>
+    </categories>
+    <sections>
+        <section id="2" handle="sections">Sections</section>
+        <entry id="4" categories="0" pages="1">
+            <title handle="home">Home</title>
+            <description word-count="4"><p>Welcome to our site</p></description>
+            <site>
+                <item handle="" id="1" />
+            </site>
+            <deleted>No</deleted>
+        </entry>
+	</sections>
+</data>

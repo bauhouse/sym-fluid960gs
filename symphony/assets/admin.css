@@ -1,0 +1,263 @@
+/* Framework */
+html,
+body {
+	height: 100%;
+}
+form {
+	position: relative;
+	margin-top: -5em;
+	padding: 0 19px 5em;
+	min-height: 100%;
+}
+h1 {
+	margin: 0 -19px;
+	padding: 5.64em 19px 1.71em;
+	background: #353530;
+	color: #fff;
+	text-shadow: -1px 2px 3px #111;
+	font-weight: bold;
+	line-height: 1ex;
+}
+h1 a {
+	color: #fff;
+	text-decoration: none;
+}
+h1 a:hover,
+#usr a:hover {
+	color: #ccb;
+}
+
+/* Navigation */
+#nav {
+	position: relative;
+	z-index: 3;
+	float: left;
+	margin: -5px 0 1.3em -19px;
+	padding: 0 38px 0 0;
+	width: 100%;
+	background: url("images/navigation.png") 0 -60px repeat-x;
+	color: #646464;
+	white-space: nowrap;
+	list-style: none;
+	text-transform: uppercase;
+	font: bold 90.91%/2px Lucida Grande, Leelawadee, Tahoma, Verdana, sans-serif;
+}
+#nav > li {
+	float: left;
+	margin: 5px -19px 5px 19px;
+	padding: 14px 1em;
+	height: 2px;
+}
+#nav > li:hover,
+#nav > li.active {
+	background: #517ca6 url("images/navigation.png") repeat-x;
+	color: #fff;
+}
+#nav > li:hover {
+	position: relative;
+	background-color: #7e7e70;
+	background-position: 0 -30px;
+}
+#nav ul {
+	display: none;
+	position: absolute;
+	top: 25px;
+	left: 5px;
+	margin: 0;
+	border: 1px solid;
+	border-color: #fdfdfd #f1f1f1 #d2d2d2 #ececec;
+	padding-left: 0;
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.8);
+	list-style: none;
+	text-transform: none;
+	font-weight: normal;
+	font-size: 130%;
+	line-height: 2.5;
+}
+#nav li:hover ul {
+	display: block;
+}
+#nav a {
+	display: block;
+	padding: 0 0.77em;
+	color: #444;
+	text-decoration: none;
+}
+#nav a:hover {
+	background-color: #7e7e70;
+	color: #fff;
+}
+
+/* User */
+#usr {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	padding: 1.75em 12px;
+	background: #353530 url("images/navigation.png") 0 -95px repeat-x;
+	text-align: right;
+	text-shadow: -1px 2px 3px #111;
+	color: #fff;
+}
+#usr li {
+	display: inline;
+}
+#usr a {
+	padding: 5px;
+	border: none;
+	text-decoration: none;
+	color: #fff;
+}
+
+/* System Messages */
+#notice {
+	position: relative;
+	z-index: 2;
+	margin: 5.5em -19px -5.5em;
+	border-top: 3px solid #979792;
+	border-bottom: 2px solid #777;
+	padding: 0 0.83em 0;
+	background-color: #e4e4e0;
+	color: #555;
+	font-size: 90.91%;
+	line-height: 2.5;
+}
+#notice.error {
+	background-color: #ffb;
+	border-top: 3px solid #cc8;	
+}
+#notice.success {
+	background-color: #ddf6bb;
+	border-top: 3px solid #90c349;
+}
+#notice a,
+#notice button {
+	color: #999;
+	margin-left: 0.5em;
+}
+#notice a:hover,
+#notice button:hover {
+	color: #332;
+}
+#notice.error a,
+#notice.error button {
+	color: #d55;
+}
+#notice.error a:hover,
+#notice.error button:hover {
+	color: #912712;
+}
+#notice.success a:hover,
+#notice.success button:hover {
+	color: #111;
+}
+#notice button {
+	border: none;
+	background: none;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* Common Vocabulary */
+.busy,
+.busy * {
+	cursor: wait;
+}
+.inactive,
+.inactive * {
+	color: #887;
+}
+.irrelevant {
+	display: none;
+}
+.wrapper {
+	margin: 0 -19px;
+	padding: 0 19px;
+	height: 0;
+	overflow: hidden;
+}
+.selected,
+.selected td {
+	border-color: #617dc5 !important;
+	background-color: #5273c0 !important;
+}
+.movable,
+tr.movable td,
+/* Until CSS3 widely supported, tr.movable:nth-child(odd) td */
+tr.movable.odd td {
+	border-color: #998;
+	background-color: #887;
+}
+.selected,
+.selected a,
+.selected td,
+.movable,
+.movable a,
+.movable td {
+	color: #fff;
+}
+.movable,
+.movable *,
+.orderable tbody {
+	cursor: move;
+}
+.selected h4 i,
+.selected label i,
+.selected .inactive {
+	color: #abe;
+}
+.movable h4 i,
+.movable label i,
+.movable .inactive {
+	color: #ccb;
+}
+
+/* Code */
+code {
+	font: 115%/1.5 Monaco, Consolas, Andale Mono, monospace;
+	font-size-adjust: 0.5;
+}
+pre {
+	position: relative;
+	left: 275px;
+	margin: 0 0 1.75em -275px;
+	width: 100%;
+	color: #474742;
+	white-space: normal;
+	font: inherit;
+}
+pre code {
+	display: block;
+	border: 1px dashed #a1a19a;
+	padding: 5px 7px;
+	overflow: auto;
+	white-space: pre;
+}
+
+/* Buttons */
+a.button {
+	position: absolute;
+	right: 0;
+	bottom: 2px;
+	padding-top: 15px;
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	background-color: #597bc6;
+	color: #fff;
+}
+a.button:hover,
+a.button.active {
+	background-color: #222;
+}
+a.create {
+	padding-left: 66px;
+	background: #81b934 url("images/create.png");
+}
+a.configure {
+	padding-left: 60px;
+	background-image: url("images/configure.png");
+}

@@ -1,0 +1,29 @@
+Maintenance Mode
+------------------------------------
+
+Version: 1.1
+Author: Alistair Kearney (alistair@symphony21.com)
+Build Date: 27th Jan 2009
+Requirements: Symphony 2.0
+
+This is a replacement for the Maintenance mode option found in all Symphony 
+version prior to 2.0
+
+Will not work in any version prior to 2.0 stable.
+
+[INSTALLATION]
+
+** Note: The latest version can alway be grabbed with "git clone git://github.com/pointybeard/maintenance_mode.git"
+
+1. Upload the 'maintenance_mode' folder in this archive to your Symphony 'extensions' folder.
+
+2. Enable it by selecting the "Maintenance Mode", choose Enable from the with-selected menu, then click Apply.
+
+3. Create/Edit a page with the type "maintenance". This is the page that will be displayed to visitors.
+
+4. Go to System > Preferences to enable/disable "Maintenance Mode".
+
+
+[CHANGE LOG]
+
+1.1 - Changed call to pageAlert to make easier to translate and conform with 2.0.1 guidelines

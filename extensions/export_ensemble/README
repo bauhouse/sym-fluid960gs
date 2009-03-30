@@ -1,0 +1,35 @@
+Export Ensemble
+------------------------------------
+
+Version: 1.5
+Author: Alistair Kearney (alistair@symphony21.com)
+Build Date: 27th Jan 2009
+Requirements: Latest Symphony 2 build, ZIP enabled (--enable-zip)
+
+This is a replacement for the Symphony 2 Beta "Create Ensemble" feature, cut from the final Symphony 2 release.
+
+It uses the ZIP module of PHP, and as such is memory efficient and should allow for much larger sites to be exported 
+without the need for increasing PHP's memory limit.
+
+Currently this extension adds a "Create" button to the preferences page. In the future it will instead have its own 
+interface with options for including additional files and folders as well as excluding and other options.
+
+
+[INSTALLATION]
+
+** Note: The latest version can alway be grabbed with "git clone git://github.com/pointybeard/export_ensemble.git"
+
+1. Upload the 'export_ensemble' folder in this archive to your Symphony 'extensions' folder.
+
+2. Enable it by selecting the "Export Ensemble", choose Enable from the with-selected menu, then click Apply.
+
+
+[CHANGE LOG]
+
+1.5 - README and LICENCE are correctly added to the archives
+
+1.3 - Changed call to pageAlert to make easier to translate and conform with 2.0.1 guidelines
+
+1.2 - install() function properly checks for the ZipArchive class and returns true if found, allowing installation
+
+1.1 - Moved "installer.tpl", found in the main S2 repository, into the /lib folder
