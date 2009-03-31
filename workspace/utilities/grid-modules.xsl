@@ -107,7 +107,18 @@
 			</ul>
 		</li>
 		<li>
-			<a href="http://overture21.com/forum/comments.php?DiscussionID=231">Download Files</a>
+			<a href="http://overture21.com/forum/comments.php?DiscussionID=231">Download / Forum</a>
+			<ul>
+				<li>
+					<a href="http://github.com/bauhouse/fluid960gs/tree/">Download: Github</a>
+				</li>
+				<li>
+					<a href="http://github.com/bauhouse/sym-fluid960gs/tree/">Symphony Ensemble</a>
+				</li>
+				<li>
+					<a href="http://overture21.com/forum/comments.php?DiscussionID=231">Forum Discussion</a>
+				</li>
+			</ul>
 		</li>
 		<li class="secondary">
 			<a href="http://960.gs/" title="960.gs | A CSS grid system developed by Nathan Smith">The 960 Grid System</a>
