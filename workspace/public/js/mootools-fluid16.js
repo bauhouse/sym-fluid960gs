@@ -73,7 +73,7 @@ window.addEvent('domready', function() {
 
 				var req = new Request.HTML({
 					method: 'get',
-					url: 'workspace/public/data/ajax-response.html',
+					url: '/sym/fluid960gs/workspace/public/data/ajax-response.html',
 					update: $('ajax-content'),
 					onComplete: function(html) { 
 						$('loading').setStyle('display', 'none'); //Hides the loading image

@@ -17,6 +17,17 @@
 	<xsl:comment><![CDATA[[if gte IE 7]><link rel="stylesheet" type="text/css" href="]]><xsl:value-of select="$css-path"/><![CDATA[ie.css" media="screen" /><![endif]]]></xsl:comment>
 </xsl:template>
 
+<xsl:template name="grid-960-css">
+	<xsl:param name="css-path" select="concat($workspace, '/public/css/')"/>
+	<link rel="stylesheet" type="text/css" href="{$css-path}reset.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{$css-path}text.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{$css-path}960.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{$css-path}layout.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{$css-path}nav.css" media="screen" />
+	<xsl:comment><![CDATA[[if IE 6]><link rel="stylesheet" type="text/css" href="]]><xsl:value-of select="$css-path"/><![CDATA[ie6.css" media="screen" /><![endif]]]></xsl:comment>
+	<xsl:comment><![CDATA[[if gte IE 7]><link rel="stylesheet" type="text/css" href="]]><xsl:value-of select="$css-path"/><![CDATA[ie.css" media="screen" /><![endif]]]></xsl:comment>
+</xsl:template>
+
 <xsl:template name="grid-mootools">
 	<xsl:param name="js-path" select="concat($workspace, '/public/js/')"/>
 	<script type="text/javascript" src="{$js-path}mootools-1.2.1-core.js"></script>
@@ -26,27 +37,74 @@
 
 <xsl:template name="grid-jquery">
 	<xsl:param name="js-path" select="concat($workspace, '/public/js/')"/>
-	<script type="text/javascript" src="{$js-path}jquery-1.3.1.min.js"></script>
+	<script type="text/javascript" src="{$js-path}jquery-1.3.2.min.js"></script>
 	<script type="text/javascript" src="{$js-path}jquery-ui.js"></script>
 	<script type="text/javascript" src="{$js-path}jquery-fluid16.js"></script>
 </xsl:template>
 
 <xsl:template name="grid-branding">
 	<h1 id="branding">
-		<a href="./"><xsl:value-of select="$website-name"/></a>
+		<a href="{$root}/"><xsl:value-of select="$website-name"/></a>
 	</h1>
 </xsl:template>
 
 <xsl:template name="grid-main-navigation">
 	<ul class="nav main">
 		<li>
-			<a href="960/">Fixed 12-column</a>
+			<a href="{$root}/12/">Fluid 12-column</a>
+			<ul>
+				<li>
+					<a href="{$root}/12/fluid/mootools/">MooTools</a>
+				</li>
+				<li>
+					<a href="{$root}/12/fluid/jquery/">jQuery</a>
+				</li>
+				<li>
+					<a href="{$root}/12/fluid/none/">No Javascript</a>
+				</li>
+			</ul>
 		</li>
 		<li>
-			<a href="12/">Fluid 12-column</a>
+			<a href="{$root}/12/">Fluid 16-column</a>
+			<ul>
+				<li>
+					<a href="{$root}/16/fluid/mootools/">MooTools</a>
+				</li>
+				<li>
+					<a href="{$root}/16/fluid/jquery/">jQuery</a>
+				</li>
+				<li>
+					<a href="{$root}/16/fluid/none/">No Javascript</a>
+				</li>
+			</ul>
 		</li>
 		<li>
-			<a href="16/">Fluid 16-column</a>
+			<a href="{$root}/12/fixed/">Fixed 12-column</a>
+			<ul>
+				<li>
+					<a href="{$root}/12/fixed/mootools/">MooTools</a>
+				</li>
+				<li>
+					<a href="{$root}/12/fixed/jquery/">jQuery</a>
+				</li>
+				<li>
+					<a href="{$root}/12/fixed/none/">No Javascript</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="{$root}/12/fixed/">Fixed 16-column</a>
+			<ul>
+				<li>
+					<a href="{$root}/16/fixed/mootools/">MooTools</a>
+				</li>
+				<li>
+					<a href="{$root}/16/fixed/jquery/">jQuery</a>
+				</li>
+				<li>
+					<a href="{$root}/16/fixed/none/">No Javascript</a>
+				</li>
+			</ul>
 		</li>
 		<li>
 			<a href="http://overture21.com/forum/comments.php?DiscussionID=231">Download Files</a>
@@ -103,10 +161,25 @@
 </xsl:template>
 
 <xsl:template name="grid-textbox-4">
+	<xsl:param name="js" select="'mootools'"/>
 	<div class="box">
 		<h2>Contribution</h2>
 		<div class="block">
-			<p>The <a href="/fluid960gs/">Fluid 960 Grid System</a> templates have been built upon the work of Nathan Smith and his <a href="http://960.gs/">960 Grid System</a> using effects from the <a href="http://www.mootools.net/">Mootools</a> JavaScript library. The idea for building these templates was inspired by Andy Clarke, author of <a href="http://www.transcendingcss.com/">Transcending CSS</a>, who advocates a content-out approach to rapid interactive prototyping, crediting Jason Santa Maria with the <a href="http://www.jasonsantamaria.com/archive/2004/05/24/grey_box_method.php">grey box method</a>.</p>
+			<p>The <a href="/fluid960gs/">Fluid 960 Grid System</a> templates have been built upon the work of Nathan Smith and his <a href="http://960.gs/">960 Grid System</a>
+			 <xsl:choose>
+			 	<xsl:when test="$js = 'mootools'">
+					<xsl:text> using effects from the </xsl:text>
+					<a href="http://mootools.net/">MooTools</a>
+					<xsl:text> JavaScript library</xsl:text>
+			 	</xsl:when>
+			 	<xsl:when test="$js = 'jquery'">
+					<xsl:text> using effects from the </xsl:text>
+					<a href="http://jquery.com/">jQuery</a>
+					<xsl:text> JavaScript library</xsl:text>
+			 	</xsl:when>
+			 </xsl:choose>
+			 <xsl:text>. </xsl:text>
+			 The idea for building these templates was inspired by Andy Clarke, author of <a href="http://www.transcendingcss.com/">Transcending CSS</a>, who advocates a content-out approach to rapid interactive prototyping, crediting Jason Santa Maria with the <a href="http://www.jasonsantamaria.com/archive/2004/05/24/grey_box_method.php">grey box method</a>.</p>
 		</div>
 	</div>
 </xsl:template>
@@ -128,7 +201,7 @@
 <xsl:template name="grid-paragraphs">
 	<div class="box">
 		<h2>
-			<a href="#" id="toggle-paragraphs" class="hidden">Paragraphs</a>
+			<a href="#" id="toggle-paragraphs">Paragraphs</a>
 		</h2>
 		<div class="block" id="paragraphs">
 			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
@@ -632,9 +705,11 @@
 <xsl:template name="grid-site-info">
 	<div class="box">
 		<p>Fluid 960 Grid System, created by <a href="http://www.domain7.com/WhoWeAre/StephenBau.html">Stephen Bau</a>, based on the <a href="http://960.gs/">960 Grid System</a> by <a href="http://sonspring.com/journal/960-grid-system">Nathan Smith</a>. Released under the 
-		<a href="licenses/GPL_license.txt">GPL</a>/
-		<a href="licenses/MIT_license.txt">MIT</a> 
-		<a href="README.txt">Licenses</a>.</p>
+		<a href="{$workspace}/licenses/GPL_license.txt">GPL</a>
+		<xsl:text> / </xsl:text>
+		<a href="{$workspace}/licenses/MIT_license.txt">MIT</a> 
+		<xsl:text> </xsl:text>
+		<a href="{$root}/README">Licenses</a>.</p>
 	</div>
 </xsl:template>
 
@@ -735,6 +810,81 @@
 		<div class="grid_1 prefix_14 suffix_1"><div class="box"><p>15</p></div></div>
 		<div class="clear"></div>
 		<div class="grid_1 prefix_15"><div class="box"><p>16</p></div></div>
+		<div class="clear"></div>
+
+	</div>
+</xsl:template>
+
+<xsl:template name="grid12-boxes">
+	<div class="box grid_12" style="padding:0;"><h2 style="margin:0"><a href="#" style="background-position:99.3% 50%" id="toggle-grid">12-column Grid</a></h2></div>
+	<div class="clear"></div>
+
+	<div id="grid">
+
+		<div class="grid_1"><div class="box"><p>01</p></div></div>
+		<div class="grid_1"><div class="box"><p>02</p></div></div>
+		<div class="grid_1"><div class="box"><p>03</p></div></div>
+		<div class="grid_1"><div class="box"><p>04</p></div></div>
+		<div class="grid_1"><div class="box"><p>05</p></div></div>
+		<div class="grid_1"><div class="box"><p>06</p></div></div>
+		<div class="grid_1"><div class="box"><p>07</p></div></div>
+		<div class="grid_1"><div class="box"><p>08</p></div></div>
+		<div class="grid_1"><div class="box"><p>09</p></div></div>
+		<div class="grid_1"><div class="box"><p>10</p></div></div>
+		<div class="grid_1"><div class="box"><p>11</p></div></div>
+		<div class="grid_1"><div class="box"><p>12</p></div></div>
+		<div class="clear"></div>
+
+		<div class="grid_2"><div class="box"><p>01</p></div></div>
+		<div class="grid_2"><div class="box"><p>02</p></div></div>
+		<div class="grid_2"><div class="box"><p>03</p></div></div>
+		<div class="grid_2"><div class="box"><p>04</p></div></div>
+		<div class="grid_2"><div class="box"><p>05</p></div></div>
+		<div class="grid_2"><div class="box"><p>06</p></div></div>
+		<div class="clear"></div>
+
+		<div class="grid_3"><div class="box"><p>01</p></div></div>
+		<div class="grid_3"><div class="box"><p>02</p></div></div>
+		<div class="grid_3"><div class="box"><p>03</p></div></div>
+		<div class="grid_3"><div class="box"><p>04</p></div></div>
+		<div class="clear"></div>
+
+		<div class="grid_4"><div class="box"><p>01</p></div></div>
+		<div class="grid_4"><div class="box"><p>02</p></div></div>
+		<div class="grid_4"><div class="box"><p>03</p></div></div>
+		<div class="clear"></div>
+
+		<div class="grid_5"><div class="box"><p>01</p></div></div>
+		<div class="grid_7"><div class="box"><p>02</p></div></div>
+		<div class="clear"></div>
+
+		<div class="grid_6"><div class="box"><p>01</p></div></div>
+		<div class="grid_6"><div class="box"><p>02</p></div></div>
+		<div class="clear"></div>
+
+		<div class="grid_1 suffix_11"><div class="box"><p>01</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_1 suffix_10"><div class="box"><p>02</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_2 suffix_9"><div class="box"><p>03</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_3 suffix_8"><div class="box"><p>04</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_4 suffix_7"><div class="box"><p>05</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_5 suffix_6"><div class="box"><p>06</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_6 suffix_5"><div class="box"><p>07</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_7 suffix_4"><div class="box"><p>08</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_8 suffix_3"><div class="box"><p>09</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_9 suffix_2"><div class="box"><p>10</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_10 suffix_1"><div class="box"><p>11</p></div></div>
+		<div class="clear"></div>
+		<div class="grid_1 prefix_11"><div class="box"><p>12</p></div></div>
 		<div class="clear"></div>
 
 	</div>

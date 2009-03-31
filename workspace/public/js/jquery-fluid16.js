@@ -7,7 +7,7 @@ Ajax : function(){
             $("#ajax-content").empty();
 
             $("#loading").show();
-            $("#ajax-content").load("workspace/public/data/ajax-response.html", function() {
+            $("#ajax-content").load("/sym/fluid960gs/workspace/public/data/ajax-response.html", function() {
             	$("#loading").hide();
             	content.slideDown();
             });
@@ -25,7 +25,7 @@ Ajax : function(){
     });
 },
 Toggle : function(){
-	var default_hide = {"grid": true,  "paragraphs": true };
+	var default_hide = {"grid": true };
 	$.each(
 		["grid", "paragraphs", "blockquote", "list-items", "section-menu", "tables", "forms", "login-forms", "search", "articles", "accordion"],
 		function() {

@@ -13,9 +13,104 @@
 	indent="yes" />
 
 <xsl:template match="/">
-	<xsl:call-template name="grid-16">
-		<xsl:with-param name="js" select="'mootools'"/>
-	</xsl:call-template>
+	<xsl:choose>
+		<xsl:when test="$c = 'jquery'">
+			<xsl:choose>
+				<xsl:when test="$b = 'fixed'">
+					<xsl:choose>
+						<xsl:when test="$a = '12'">
+							<xsl:call-template name="grid-12">
+								<xsl:with-param name="js" select="'jquery'"/>
+								<xsl:with-param name="css" select="'fixed'"/>
+							</xsl:call-template>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:call-template name="grid-16">
+								<xsl:with-param name="js" select="'jquery'"/>
+								<xsl:with-param name="css" select="'fixed'"/>
+							</xsl:call-template>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:choose>
+						<xsl:when test="$a = '12'">
+							<xsl:call-template name="grid-12">
+								<xsl:with-param name="js" select="'jquery'"/>
+							</xsl:call-template>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:call-template name="grid-16">
+								<xsl:with-param name="js" select="'jquery'"/>
+							</xsl:call-template>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:when>
+		<xsl:when test="$c = 'none'">
+			<xsl:choose>
+				<xsl:when test="$b = 'fixed'">
+					<xsl:choose>
+						<xsl:when test="$a = '12'">
+							<xsl:call-template name="grid-12">
+								<xsl:with-param name="js" select="'none'"/>
+								<xsl:with-param name="css" select="'fixed'"/>
+							</xsl:call-template>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:call-template name="grid-16">
+								<xsl:with-param name="js" select="'none'"/>
+								<xsl:with-param name="css" select="'fixed'"/>
+							</xsl:call-template>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:choose>
+						<xsl:when test="$a = '12'">
+							<xsl:call-template name="grid-12">
+								<xsl:with-param name="js" select="'none'"/>
+							</xsl:call-template>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:call-template name="grid-16">
+								<xsl:with-param name="js" select="'none'"/>
+							</xsl:call-template>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:choose>
+				<xsl:when test="$b = 'fixed'">
+					<xsl:choose>
+						<xsl:when test="$a = '12'">
+							<xsl:call-template name="grid-12">
+								<xsl:with-param name="css" select="'fixed'"/>
+							</xsl:call-template>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:call-template name="grid-16">
+								<xsl:with-param name="css" select="'fixed'"/>
+							</xsl:call-template>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:choose>
+						<xsl:when test="$a = '12'">
+							<xsl:call-template name="grid-12"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:call-template name="grid-16"/>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>
