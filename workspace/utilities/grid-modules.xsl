@@ -65,7 +65,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="{$root}/12/">Fluid 16-column</a>
+			<a href="{$root}/16/">Fluid 16-column</a>
 			<ul>
 				<li>
 					<a href="{$root}/16/fluid/mootools/">MooTools</a>
@@ -93,7 +93,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="{$root}/12/fixed/">Fixed 16-column</a>
+			<a href="{$root}/16/fixed/">Fixed 16-column</a>
 			<ul>
 				<li>
 					<a href="{$root}/16/fixed/mootools/">MooTools</a>
