@@ -12,6 +12,10 @@ window.addEvent('domready', function() {
 			var mySlide = new Fx.Slide(elToHide);
 			item.store('fx', mySlide);
 
+			if (item.hasClass('hidden')){
+				mySlide.hide();
+			}
+
 			item.addEvent('click', function(e) {
 				e.stop();
 				var fx = this.retrieve('fx');
@@ -100,7 +104,7 @@ window.addEvent('domready', function() {
 
 				var req = new Request.HTML({
 					method: 'get',
-					url: '/sym/fluid960gs/workspace/public/data/ajax-response.html',
+					url: '/fluid960gs/data/ajax-response.html',
 					update: $('ajax-content'),
 					onComplete: function(html) { 
 						$('loading').setStyle('display', 'none'); //Hides the loading image
